@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
+import avatar from './assets/default-face.png'
 
 function App() {
 
@@ -25,9 +26,9 @@ function App() {
     <div className="App">
       <h1>Black Market Photo Generator</h1>
       
-      {(typeof image != "undefined") ? (
-        <img src={image} alt="Face for Black Market use" width="512px" height="512px" />
-      ) : ('')}
+      {(image) ? (
+        <img src={image} title="Face" alt="Generated Face" width="512px" height="512px" />
+      ) : (<img src={avatar} title="No Face" alt="Blank Avatar" width="512px" height="512px" />)}
 
       <br />
       <br />
