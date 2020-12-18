@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import avatar from './assets/default-face.png';
+import Attributes from './components/Attributes';
 
 function App() {
 
@@ -11,11 +12,12 @@ function App() {
 
   const [image, setImage] = useState('');
   const [gender, setGender] = useState('male');
+  const [race, setRace] = useState('latino');
 
   const generatePhoto = () => {
     console.log('Generating new photo...');
 
-    fetch(`${generatedPhotoApi.base}faces?api_key=${generatedPhotoApi.key}&order_by=random&gender=${gender}`)
+    fetch(`${generatedPhotoApi.base}faces?api_key=${generatedPhotoApi.key}&order_by=random&gender=${gender}&${race}`)
     .then(res => res.json())
     .then(result => {
       console.log(result.faces[0].urls[4][512]);
@@ -46,6 +48,8 @@ function App() {
 
       <button onClick={generatePhoto}>Generate New Photo</button>
       <button onClick={switchGender}>{gender}</button>
+
+      <Attributes />
     </div>
   );
 }
