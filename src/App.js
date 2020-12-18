@@ -13,11 +13,12 @@ function App() {
   const [image, setImage] = useState('');
   const [gender, setGender] = useState('male');
   const [race, setRace] = useState('latino');
+  const [age, setAge] = useState('young-adult')
 
   const generatePhoto = () => {
     console.log('Generating new photo...');
 
-    fetch(`${generatedPhotoApi.base}faces?api_key=${generatedPhotoApi.key}&order_by=random&gender=${gender}&${race}`)
+    fetch(`${generatedPhotoApi.base}faces?api_key=${generatedPhotoApi.key}&order_by=random&gender=${gender}&${race}&${age}`)
     .then(res => res.json())
     .then(result => {
       console.log(result.faces[0].urls[4][512]);
