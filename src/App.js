@@ -48,9 +48,11 @@ function App() {
       <br />
 
       <button onClick={generatePhoto}>Generate New Photo</button>
-      <button onClick={switchGender}>{gender}</button>
 
+      <div>
+      <button onClick={switchGender}>{gender}</button>
       <Attributes />
+      </div>
     </div>
   );
 }
