@@ -4,7 +4,7 @@ import "./App.css";
 import avatar from "./assets/default-face.png";
 import Attributes from "./components/Attributes";
 
-function App() {
+const App = (): JSX.Element => {
   const generatedPhotoApi = {
     key: "A5CyUWr5cryc9KOdcJvqJw",
     base: "https://api.generated.photos/api/v1/",
@@ -12,10 +12,10 @@ function App() {
 
   const [image, setImage] = useState("");
   const [gender, setGender] = useState("male");
-  const [race, setRace] = useState("latino");
-  const [age, setAge] = useState("young-adult");
+  //const [race, setRace] = useState("latino");
+  //const [age, setAge] = useState("young-adult");
 
-  const generatePhoto = () => {
+  const generatePhoto = (): void => {
     console.log("Generating new photo...");
 
     axios
@@ -40,7 +40,7 @@ function App() {
       });
   };
 
-  const switchGender = () => {
+  const switchGender = (): void => {
     if (gender === "male") {
       console.log("Attribute Gender selected FEMALE");
       setGender("female");
