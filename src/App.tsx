@@ -27,16 +27,13 @@ const App = (): JSX.Element => {
         console.log(response.data.faces[0].urls[4][512]);
       })
       .catch((error) => {
-        if (error.response) {
-          // Error if picture wasn't found.
-          console.log(error.response.data);
-        } else if (error.request) {
-          // Error if no response was received.
-          console.log(error.request);
-        } else {
-          // Other errors.
-          console.log(error.message);
-        }
+        if (error.response) console.log(error.response.data);
+
+        // Error if no response was received.
+        if (error.request) console.log(error.request);
+        
+        // Other errors.
+        if (error.message) console.log(error.message);
       });
   };
 
