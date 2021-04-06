@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
 import avatar from "./assets/default-face.png";
-import Attributes from "./components/Attributes";
 
 const App = (): JSX.Element => {
   const generatedPhotoApi = {
@@ -12,8 +11,8 @@ const App = (): JSX.Element => {
 
   const [image, setImage] = useState("");
   const [gender, setGender] = useState("male");
-  //const [race, setRace] = useState("latino");
-  //const [age, setAge] = useState("young-adult");
+  const [race, setRace] = useState("latino");
+  const [age, setAge] = useState("young-adult");
 
   const generatePhoto = (): void => {
     console.log("Generating new photo...");
@@ -38,13 +37,8 @@ const App = (): JSX.Element => {
   };
 
   const switchGender = (): void => {
-    if (gender === "male") {
-      console.log("Attribute Gender selected FEMALE");
-      setGender("female");
-    } else {
-      console.log("Attribute Gender selected MALE");
-      setGender("male");
-    }
+    if (gender === "male") setGender("female");
+    if (gender === "female") setGender("male");
   };
 
   return (
@@ -75,8 +69,7 @@ const App = (): JSX.Element => {
       <button onClick={generatePhoto}>Generate New Photo</button>
 
       <div>
-        <button onClick={switchGender}>{gender}</button>
-        <Attributes />
+        <button onClick={switchGender}>{gender.charAt(0).toUpperCase() + gender.slice(1)}</button>
       </div>
     </div>
   );
