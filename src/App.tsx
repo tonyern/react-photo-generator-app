@@ -4,10 +4,8 @@ import "./App.css";
 import avatar from "./assets/default-face.png";
 
 const App = (): JSX.Element => {
-  const generatedPhotoApi = {
-    key: "A5CyUWr5cryc9KOdcJvqJw",
-    base: "https://api.generated.photos/api/v1/",
-  };
+  const { REACT_APP_PHOTO_API_KEY } = process.env;
+  const generatedPhotoApi = "https://api.generated.photos/api/v1/";
 
   const [image, setImage] = useState("");
   const [gender, setGender] = useState("male");
@@ -16,10 +14,11 @@ const App = (): JSX.Element => {
 
   const generatePhoto = (): void => {
     console.log("Generating new photo...");
+    console.log(REACT_APP_PHOTO_API_KEY);
 
     axios
       .get(
-        `${generatedPhotoApi.base}faces?api_key=${generatedPhotoApi.key}&order_by=random&gender=${gender}&${race}&${age}`
+        `${generatedPhotoApi}faces?api_key=${REACT_APP_PHOTO_API_KEY}&order_by=random&gender=${gender}&${race}&${age}`
       )
       .then((response) => {
         setImage(response.data.faces[0].urls[4][512]);
