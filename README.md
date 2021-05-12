@@ -6,7 +6,7 @@ This project makes use of the Photo API. This API contains selfies of people. At
 
 This application is a random photo generator where users can tweak attributes to generate photos they want.
 
-![Photo Generator UI]()
+![Photo Generator UI](https://github.com/tonyern/react-photo-generator-app/blob/main/public/photo-generator-UI.png)
 
 ## Available Scripts
 
